@@ -1,0 +1,7 @@
+{
+  "name": "Prisma",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
