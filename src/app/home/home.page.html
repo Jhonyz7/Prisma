@@ -1,20 +1,102 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-avatar>
+        <img alt="Imagem do Perfil" src="assets/perfil jailson.jpeg"/>
+      </ion-avatar>
+      <h1>Boa Leitura!</h1>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-content class="ion-padding">
+    
+    
+        <ion-button (click)="signout()" routerDirection="forward">logout</ion-button>
+    
+        <ion-button routerLink="/detalhes" routerDirection="forward">Criadores</ion-button>
+    
+    <ion-button id="btnsair" (click)="sairDoApp()" routerDirection="forward">Sair do App</ion-button>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchQuery" (keydown.enter)="searchBooks()" search-icon="book" placeholder="Pesquisar Livros" show-clear-button="focus"></ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngFor="let livro of livros">
+    <ion-card >
+      <img [src]="livro.volumeInfo?.imageLinks?.thumbnail" alt="Book Cover">
+      <ion-card-header>
+        <ion-card-title>{{ livro.volumeInfo.title }}</ion-card-title>
+        <ion-card-subtitle>{{ livro.volumeInfo.authors[0] }} ({{ livro.volumeInfo.publisher }})</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Descrição:</p>
+        <p>{{ livro.volumeInfo.description }}</p>
+      </ion-card-content>
+    </ion-card>
   </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <div class="infinite-scroll-content">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 100 100"
+        enable-background="new 0 0 100 100"
+        xml:space="preserve"
+      >
+        <circle fill="none" stroke="#1b6dff" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48" />
+        <line
+          fill="none"
+          stroke-linecap="round"
+          stroke="#1b6dff"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          x1="50"
+          y1="50"
+          x2="85"
+          y2="50.5"
+        >
+          <animateTransform
+            attributeName="transform"
+            dur="2s"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line
+          fill="none"
+          stroke-linecap="round"
+          stroke="#1b6dff"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          x1="50"
+          y1="50"
+          x2="49.5"
+          y2="74"
+        >
+          <animateTransform
+            attributeName="transform"
+            dur="15s"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            repeatCount="indefinite"
+          />
+        </line>
+      </svg>
+    </div>
+
+  </ion-infinite-scroll>
 </ion-content>

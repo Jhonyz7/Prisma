@@ -1,0 +1,66 @@
+
+
+ion-content{
+    --background :#C9B6FA
+  }
+
+  img{
+    width: 200px;
+  }
+  
+  ion-button{
+    --background:#364773;
+    color: white;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    text-transform: capitalize;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+    
+  ion-img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 50px;
+    width: 250px;
+  }
+  ion-input{
+    margin-bottom: 25px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    --background: #c87af5;
+  }
+  form{
+    margin-top: 50px;
+  }
+  /*nome dos criadores*/
+  .divcriadores{
+    position: absolute;
+  bottom: 0;
+  right: 0;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  }
+  /*nome dos criadores*/
+  .criadores{
+    font-family: 'Roboto', arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.25px;
+    color: #364773;
+    float: right;
+    
+  }
+  #imgcriadores{
+
+    float: right; 
+    width: 20px;
+    height: 20px;
+  }

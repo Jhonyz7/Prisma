@@ -1,0 +1,18 @@
+
+<ion-content>
+  <ion-img src="../../assets/logo cadastro.png"></ion-img>
+  <form (submit)="register()">
+
+    <ion-input type="email" label="E-mail" label-placement="floating" fill="outline" shape="round" [(ngModel)]="email" name="email"></ion-input>
+
+    <ion-input type="password" label="Senha" label-placement="floating" fill="outline" shape="round" [(ngModel)]="password" name="password"></ion-input>
+    
+    <ion-button shape="round" type="submit">Cadastrar</ion-button>
+    <br>
+    <ion-button shape="round" routerLink="/login">voltar ao login</ion-button>
+  </form>
+  <div class="divcriadores">
+    <img id="imgcriadores" src="../../assets/Logo Prisma.png" alt="logo">
+  <p class="criadores">. Copyright © 2024-2025 / Prisma By Jhonatan Barbosa & Ágatha Leal .</p>
+  </div>
+</ion-content>
